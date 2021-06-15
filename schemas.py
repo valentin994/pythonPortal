@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 
 class Post(BaseModel):
-    id: int
     title: str
     desc: str
     list_of_contents: List[str]
@@ -12,3 +11,16 @@ class Post(BaseModel):
 
     class Config:
         orm_mode: True
+        schema_extra={
+            "example":{
+                "title": "Variables",
+                "desc": "This post is about variables",
+                "list_of_contents": [
+                    "String",
+                    "Integer",
+                    "Float"
+                ],
+                "content": ["First section", "Second section", "Third section"],
+                "tags": ["begginer", "variables"]
+            }
+        }

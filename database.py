@@ -6,7 +6,7 @@ import configparser
 config = configparser.ConfigParser()
 config.read("config.ini")
 host, user, password, port = config["psql"].values()
-
+print(user)
 
 SQLALCHEMY_DATABASE_URL = f"postgresql://{user}:{password}@{host}:{port}"
 

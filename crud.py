@@ -8,4 +8,5 @@ def create_post(db: Session, post: schemas.Post):
     db.add(db_post)
     db.commit()
     db.refresh(db_post)
+    print(db_post)
     return db_post

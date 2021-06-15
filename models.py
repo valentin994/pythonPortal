@@ -13,4 +13,4 @@ class Post(Base):
     tags = Column(ARRAY(String))
 
     def __repr__(self):
-        return f"Python portal Post: {self.id}. {self.title}"
+        return f"Post ID: {self.id}, Post Title: {self.title}"

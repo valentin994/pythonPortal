@@ -4,7 +4,7 @@ from sqlalchemy import Table, Column, Integer, String, MetaData, ARRAY
 meta = MetaData()
 posts = Table(
     'posts', meta,
-    Column('id', Integer, primary_key=True),
+    Column('id', Integer, primary_key=True, autoincrement=True),
     Column('title', String, nullable=False),
     Column('desc', String, nullable=False),
     Column('list_of_contents', ARRAY(String), nullable=False),

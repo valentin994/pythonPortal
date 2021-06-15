@@ -15,7 +15,7 @@ def get_db():
         db.close()
 
 
-@app.post("/post/", response_model=schemas.Post)
+@app.post("/post/")
 def create_post(post: schemas.Post, db: Session = Depends(get_db)):
     db_post = crud.create_post(db, post)
     return db_post
