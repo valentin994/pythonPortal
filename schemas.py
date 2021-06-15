@@ -2,7 +2,7 @@ from typing import List
 from pydantic import BaseModel
 
 
-class Post(BaseModel):
+class CreatePost(BaseModel):
     title: str
     desc: str
     list_of_contents: List[str]
@@ -11,16 +11,20 @@ class Post(BaseModel):
 
     class Config:
         orm_mode: True
-        schema_extra={
-            "example":{
+        schema_extra = {
+            "example": {
                 "title": "Variables",
                 "desc": "This post is about variables",
-                "list_of_contents": [
-                    "String",
-                    "Integer",
-                    "Float"
-                ],
+                "list_of_contents": ["String", "Integer", "Float"],
                 "content": ["First section", "Second section", "Third section"],
-                "tags": ["begginer", "variables"]
+                "tags": ["begginer", "variables"],
             }
         }
+
+class GetPost(BaseModel):
+    id: int
+    title: str
+    desc: str
+    list_of_contents: List[str]
+    content: List[str]
+    tags: List[str]
