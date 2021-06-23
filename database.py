@@ -1,12 +1,12 @@
+import configparser
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import configparser
 
 config = configparser.ConfigParser()
 config.read("config.ini")
 host, user, password, port = config["psql"].values()
-print(user)
 
 SQLALCHEMY_DATABASE_URL = f"postgresql://{user}:{password}@{host}:{port}"
 
